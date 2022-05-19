@@ -1,9 +1,9 @@
 export class LibraryManagement {
   public constructor(
-    public id: number,
-    public name: string,
-    public mota: string,
-    public status: string,
-    public favorite: boolean
+    public Id: number,
+    public NameBook: string,
+    // public ImageBook: string,
+    public DescribeBook: string,
+    public StatusBook: string // public favorite: boolean
   ) {}
 }

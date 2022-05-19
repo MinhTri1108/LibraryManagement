@@ -12,23 +12,12 @@
           <div class="card-body" id="show_all_adminaccounts">
             <div class="container">
               <div class="row" style="row-gap: 20px">
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-3" *ngFor="let listBook of listBooks">
                   <div class="item">
-                    <p>Tên:</p>
-                    <p>Mã:</p>
-                    <p>Giá hiện tại:</p>
-                    <p>Giá ban đầu:</p>
-                    <p></p>
-                    <p></p>
-                    <button class="btn btn-danger">Xóa khỏi danh sách</button>
-                    <button class="btn btn-danger">Bỏ yêu thích</button>
-                    <button class="btn btn-primary">Yêu thích</button>
-                  </div>
-                  <div class="item">
-                    <p>Tên:</p>
-                    <p>Mã:</p>
-                    <p>Giá hiện tại:</p>
-                    <p>Giá ban đầu:</p>
+                    <p>ID: {{ listBook.Id }}</p>
+                    <p>Tên Sách: {{ listBook.NameBook }}</p>
+                    <p>Mô tả: {{ listBook.DescribeBook }}</p>
+                    <p>Giá ban đầu: {{ listBook.StatusBook }}</p>
                     <p></p>
                     <p></p>
                     <button class="btn btn-danger">Xóa khỏi danh sách</button>
