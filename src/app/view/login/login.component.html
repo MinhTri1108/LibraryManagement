@@ -1,73 +1,50 @@
 <body>
-  <div class="container-fluid" style="margin-top: 15px">
-    <div class="rounded d-flex justify-content-center">
-      <div
-        class="col-md-4 col-sm-12 shadow-lg p-5 bg-light"
-        style="border-radius: 10px"
-      >
-        <div class="text-center" style="margin-bottom: 70px">
-          <img
-            src="https://img4.thuthuatphanmem.vn/uploads/2020/12/26/hinh-anh-hoat-hinh-cuon-sach-mo-ra_051501119.jpg"
-            style="height: 150px; width: 150px"
-            alt=""
-          />
-          <h3 class="text-primary" style="margin-top: 40px">ĐĂNG NHẬP</h3>
-        </div>
-        <form action="" method="post">
-          <div class="p-4">
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"
-                ><i class="bi bi-person-plus-fill text-white"></i
-              ></span>
-              <input
-                type="text"
-                name="taikhoantxt"
-                class="form-control"
-                placeholder="Tên tài khoản"
-              />
-            </div>
-            <!-- <div class="input-group ml-5 mt-2">
-              <p style="color: red">Bạn chưa nhập tên tài khoản !!!</p>
-            </div> -->
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-primary"
-                ><i class="bi bi-key-fill text-white"></i
-              ></span>
-              <input
-                type="password"
-                id="password"
-                name="matkhautxt"
-                class="form-control"
-                placeholder="Mật khẩu"
-              />
-              <span
-                class="input-group-text"
-                style="cursor: pointer"
-                onclick="password_show_hide();"
-              >
+    <div class="container-fluid" style="margin-top: 15px">
+        <div class="rounded d-flex justify-content-center">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light" style="border-radius: 10px">
+                <div class="text-center" style="margin-bottom: 70px">
+                    <img src="https://img4.thuthuatphanmem.vn/uploads/2020/12/26/hinh-anh-hoat-hinh-cuon-sach-mo-ra_051501119.jpg" style="height: 150px; width: 150px" alt="" />
+                    <h3 class="text-primary" style="margin-top: 40px">ĐĂNG NHẬP</h3>
+                </div>
+                <!-- <form  action=""  method="post"> -->
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="p-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
+                            <input type="text" formControlName="UserName" class="form-control" placeholder="Tên tài khoản" />
+                        </div>
+                        <!-- <div *ngIf="loginForm.controls['UserName'].valid" class="input-group ml-5 mt-2">
+                            <p style="color: red">Bạn chưa nhập tên tài khoản !!!</p>
+                        </div> -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
+                            <input type="password" id="password" formControlName="Pass" class="form-control" placeholder="Mật khẩu" />
+                            <span class="input-group-text" style="cursor: pointer" onclick="password_show_hide();">
                 <i class="fas fa-eye" id="show_eye"></i>
                 <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
               </span>
+                        </div>
+                        <!-- <div *ngIf="loginForm.controls['Pass'].valid" class="input-group ml-5 mt-2">
+                            <p style="color: red">Bạn chưa nhập mật khẩu !!!</p>
+                        </div> -->
+                        <div class="input-group ml-5 mt-4 mb-1">
+                            <input type="checkbox" style="width: 1.25rem; height: 1.25rem" name="ghinho" />
+                            <span class="ml-3">Ghi nhớ đăng nhập </span>
+                        </div>
+                        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-lg btn-block">
+                            Đăng nhập
+                        </button>
+                    </div>
+                </form>
+                <h1>{{getValue()}}</h1>
+                <form (ngSubmit)="logout()">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Đăng xuất
+                    </button>
+                </form>
             </div>
-            <!-- <div class="input-group ml-5 mt-2">
-              <p style="color: red">Bạn chưa nhập mật khẩu !!!</p>
-            </div> -->
-            <div class="input-group ml-5 mt-4 mb-1">
-              <input
-                type="checkbox"
-                style="width: 1.25rem; height: 1.25rem"
-                name="ghinho"
-              />
-              <span class="ml-3">Ghi nhớ đăng nhập </span>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">
-              Đăng nhập
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
 </body>
 <!-- <script>
   function password_show_hide() {
