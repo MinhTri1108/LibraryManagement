@@ -1,9 +1,17 @@
-export class LibraryManagement {
-  public constructor(
-    public Id: number,
-    public NameBook: string,
-    // public ImageBook: string,
-    public DescribeBook: string,
-    public StatusBook: string // public favorite: boolean
-  ) {}
+export interface LibraryManagement {
+  // Id: number;
+  // NameBook: string;
+  // // public ImageBook: string,
+  // DescribeBook: string;
+  // StatusBook: string; // public favorite: boolean
+  // id: number;
+  // img: string;
+  // title: string;
+  // short_description: string;
+  // post_content: string;
+  Id: number;
+  NameBook: string;
+  DescribeBook: string;
+  ImageBook: string;
+  StatusBook: number;
 }

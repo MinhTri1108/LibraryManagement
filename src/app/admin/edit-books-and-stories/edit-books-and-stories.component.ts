@@ -7,21 +7,30 @@ import {
 } from '@angular/forms';
 import { LibraryManagementService } from 'src/app/services/library-management.service';
 import { LibraryManagement } from 'src/app/model/library-management';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
-  selector: 'app-create-books-and-stories',
-  templateUrl: './create-books-and-stories.component.html',
-  styleUrls: ['./create-books-and-stories.component.css'],
+  selector: 'app-edit-books-and-stories',
+  templateUrl: './edit-books-and-stories.component.html',
+  styleUrls: ['./edit-books-and-stories.component.css'],
 })
-export class CreateBooksAndStoriesComponent implements OnInit {
+export class EditBooksAndStoriesComponent implements OnInit {
+  id!: string;
   public book!: LibraryManagement;
-  public bookForm: FormGroup;
+  bookForm!: FormGroup;
   public statusbooks = ['0', '1'];
   constructor(
     private fb: FormBuilder,
     private librarymanagementService: LibraryManagementService,
-    private router: Router
-  ) {
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['postId'];
+    this.librarymanagementService.getIdBook(this.id).subscribe((data: any) => {
+      this.book = data;
+    });
     this.bookForm = this.fb.group({
       NameBook: new FormControl(null, Validators.required),
       DescribeBook: new FormControl(null, Validators.required),
@@ -29,17 +38,15 @@ export class CreateBooksAndStoriesComponent implements OnInit {
       StatusBook: new FormControl(this.statusbooks[0], Validators.required),
     });
   }
-
-  ngOnInit(): void {}
   get f() {
     return this.bookForm.controls;
   }
   createBook() {
     console.log(this.bookForm.value);
     this.librarymanagementService
-      .create(this.bookForm.value)
+      .update(this.id, this.bookForm.value)
       .subscribe((res: any) => {
-        console.log('BOOk created successfully!');
+        console.log('BOOk updated successfully!');
         this.router.navigateByUrl('admin/List-BookAndStories');
       });
   }

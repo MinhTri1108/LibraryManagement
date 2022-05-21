@@ -1,1 +1,66 @@
-<p>details-order works!</p>
+<body class="bg-light">
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <div class="card shadow">
+          <div
+            class="card-header bg-primary d-flex justify-content-between align-items-center"
+          >
+            <div class="row">
+              <div class="col-md6">
+                <button class="btn btn-light">
+                  <a href="" routerLink="/user/List-Book"
+                    ><i class="bx bx-arrow-back bx-fade-left"></i
+                  ></a>
+                </button>
+              </div>
+              <div
+                class="col-md6"
+                style="font-size: 20px; color: white; margin-left: 20px"
+              >
+                <b>Sách</b>
+              </div>
+            </div>
+          </div>
+          <div class="card-body" id="">
+            <div class="container">
+              <div class="row" style="row-gap: 20px">
+                <!-- <pre>
+                  {{ book | json }}
+                </pre> -->
+                <div class="col-6">
+                  <img
+                    src="https://sachcanhdieu.com/wp-content/uploads/sites/2/2020/03/sach-dao-duc-1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="col-6">
+                  <p style="font-size: 50px">
+                    Tên sách: {{ book[0].NameBook }}
+                  </p>
+                  <p style="font-size: 20px">
+                    Mô tả: {{ book[0].DescribeBook }}
+                  </p>
+                  <p
+                    *ngIf="book[0].StatusBook == 1"
+                    style="color: green; font-size: 20px"
+                  >
+                    Trạng thái: Còn sách
+                  </p>
+                  <p
+                    *ngIf="book[0].StatusBook == 0"
+                    style="color: red; font-size: 20px"
+                  >
+                    Trạng thái: Sách đã cho mượn
+                  </p>
+                  <button class="btn btn-success">Thuê ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end table -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

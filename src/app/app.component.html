@@ -14,6 +14,10 @@
     /> -->
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
@@ -62,7 +66,7 @@
       <a
         class="navbar-brand"
         href="#"
-        routerLink="user/List-BookAndStories"
+        routerLink="user/List-Book"
         routerLinkActive="active"
         >Quản lý thư viện</a
       >
@@ -132,7 +136,6 @@
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
-              href="#"
               id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
@@ -153,7 +156,14 @@
                 routerLink="admin/List-BookAndStories"
                 routerLinkActive="active"
                 href="#"
-                >Danh sách Sách-Truyện</a
+                >Danh sách Sách</a
+              >
+              <a
+                class="dropdown-item"
+                routerLink="admin/Create-BookAndStories"
+                routerLinkActive="active"
+                href="#"
+                >Thêm Sách</a
               >
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>

@@ -9,13 +9,14 @@ import { CreateAccountComponent } from './admin/create-account/create-account.co
 import { ListAccountComponent } from './admin/list-account/list-account.component';
 import { CreateBooksAndStoriesComponent } from './admin/create-books-and-stories/create-books-and-stories.component';
 import { ListBooksAndStoriesComponent } from './admin/list-books-and-stories/list-books-and-stories.component';
-import { ItemBooksAndStoriesComponent } from './admin/item-books-and-stories/item-books-and-stories.component';
 import { LoginComponent } from './view/login/login.component';
 import { RegisterComponent } from './view/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { DetailsOrderComponent } from './user/details-order/details-order.component';
 import { AppRoutesModule } from './app-routes.module';
 import { LibraryManagementService } from './services/library-management.service';
+import { ListBookComponent } from './user/list-book/list-book.component';
+import { EditBooksAndStoriesComponent } from './admin/edit-books-and-stories/edit-books-and-stories.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,12 @@ import { LibraryManagementService } from './services/library-management.service'
     ListAccountComponent,
     CreateBooksAndStoriesComponent,
     ListBooksAndStoriesComponent,
-    ItemBooksAndStoriesComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
     DetailsOrderComponent,
+    ListBookComponent,
+    EditBooksAndStoriesComponent,
   ],
   imports: [
     BrowserModule,
