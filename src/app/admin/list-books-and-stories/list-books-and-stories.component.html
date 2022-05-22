@@ -52,8 +52,11 @@
                           </button>
                         </td>
                         <td>
-                          <button class="btn btn-danger">
-                            <a href="" style="color: white">Xóa</a>
+                          <button
+                            (click)="deleteIdBook(item.Id)"
+                            class="btn btn-danger"
+                          >
+                            <a style="color: white">Xóa</a>
                           </button>
                         </td>
                       </tr>

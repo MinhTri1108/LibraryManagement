@@ -10,6 +10,7 @@ import { ListBookComponent } from './user/list-book/list-book.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { LoginComponent } from './view/login/login.component';
 import { RegisterComponent } from './view/register/register.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -21,6 +22,10 @@ const routes: Routes = [
     path: 'admin/List-BookAndStories',
     component: ListBooksAndStoriesComponent,
   },
+  // {
+  //   path: 'admin/Chart-BookRental',
+  //   component: ChartBookRentalComponent,
+  // },
   {
     path: 'admin/Create-BookAndStories',
     component: CreateBooksAndStoriesComponent,

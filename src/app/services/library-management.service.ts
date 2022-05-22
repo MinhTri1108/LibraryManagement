@@ -25,9 +25,9 @@ export class LibraryManagementService {
   }
   getIdBook(id: string): Observable<LibraryManagement[]> {
     // const params = new HttpParams().set('id', IdBook);
-    const urlgetid = 'http://localhost/API/api/book/detail.php?Id=';
+    const urlgetid = 'http://localhost/API/api/book/detail.php?id=';
     return this.http.get<LibraryManagement[]>(
-      'http://localhost/API/api/book/detail.php?Id=' + id
+      'http://localhost/API/api/book/detail.php?id=' + id
     );
   }
   create(data: any): Observable<LibraryManagement[]> {
@@ -38,13 +38,15 @@ export class LibraryManagementService {
   }
   update(id: string, data: any): Observable<LibraryManagement[]> {
     return this.http.put<LibraryManagement[]>(
-      'http://localhost/API/api/book/put.php?Id=' + id,
+      'http://localhost/API/api/book/put.php?id=' + id,
       data
     );
   }
-  // delete(id: any): Observable<any> {
-  //   return this.http.delete(`${baseUrl}/${id}`);
-  // }
+  delete(id: any): Observable<LibraryManagement[]> {
+    return this.http.delete<LibraryManagement[]>(
+      'http://localhost/API/api/book/delete.php?id=' + id
+    );
+  }
   // deleteAll(): Observable<any> {
   //   return this.http.delete(baseUrl);
   // }

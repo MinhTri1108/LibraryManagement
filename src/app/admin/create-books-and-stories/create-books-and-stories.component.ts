@@ -40,6 +40,7 @@ export class CreateBooksAndStoriesComponent implements OnInit {
       .create(this.bookForm.value)
       .subscribe((res: any) => {
         console.log('BOOk created successfully!');
+        alert('Created sách thành công');
         this.router.navigateByUrl('admin/List-BookAndStories');
       });
   }

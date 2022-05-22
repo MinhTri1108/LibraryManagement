@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditBooksAndStoriesComponent implements OnInit {
   id!: string;
-  public book!: LibraryManagement;
+  book!: LibraryManagement[];
   bookForm!: FormGroup;
   public statusbooks = ['0', '1'];
   constructor(
@@ -27,7 +27,7 @@ export class EditBooksAndStoriesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['postId'];
+    this.id = this.route.snapshot.params['id'];
     this.librarymanagementService.getIdBook(this.id).subscribe((data: any) => {
       this.book = data;
     });
@@ -47,6 +47,7 @@ export class EditBooksAndStoriesComponent implements OnInit {
       .update(this.id, this.bookForm.value)
       .subscribe((res: any) => {
         console.log('BOOk updated successfully!');
+        alert('Update sách thành công');
         this.router.navigateByUrl('admin/List-BookAndStories');
       });
   }
