@@ -20,7 +20,7 @@ export class ListBooksAndStoriesComponent implements OnInit {
   // public listBooks$!: Observable<LibraryManagement[]>;
   // public listBook: Array<LibraryManagement> = [];
   public listBooks$: LibraryManagement[] = [];
-  public listIdBooks$: LibraryManagement[] = [];
+  // public listIdBooks$: LibraryManagement[] = [];
   // dtOptions: DataTables.Settings = {};
   // dtTrigger: Subject<any> = new Subject<any>();
   constructor(
@@ -65,6 +65,13 @@ export class ListBooksAndStoriesComponent implements OnInit {
       // this.dtTrigger.next();
       // console.log(data);
       // this.listBook = data;
+    });
+  }
+  deleteIdBook(id: number) {
+    this.librarymanagementService.delete(id).subscribe((res) => {
+      this.listBooks$ = this.listBooks$.filter((item) => item.Id !== id);
+      console.log('Deleted ' + id + ' successfully');
+      alert('Delete sách thành công');
     });
   }
   // getIdBook(id: any): void {
