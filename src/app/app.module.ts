@@ -17,9 +17,14 @@ import { AppRoutesModule } from './app-routes.module';
 import { LibraryManagementService } from './services/library-management.service';
 import { ListBookComponent } from './user/list-book/list-book.component';
 import { EditBooksAndStoriesComponent } from './admin/edit-books-and-stories/edit-books-and-stories.component';
-
+import { AuthguradService } from './services/authgurad.service';
+import { AuthenticationGuard } from './authentication.guard';
+import { AdminGuard } from './auth/admin.guard';
+import { UserGuard } from './auth/user.guard';
+UserGuard
 @NgModule({
   declarations: [
+    
     AppComponent,
     CreateAccountComponent,
     ListAccountComponent,
@@ -40,7 +45,13 @@ import { EditBooksAndStoriesComponent } from './admin/edit-books-and-stories/edi
     FormsModule,
     HttpClientModule,
   ],
-  providers: [LibraryManagementService],
+  providers: [
+    LibraryManagementService
+    ,AuthguradService
+    ,AuthenticationGuard
+    ,AdminGuard
+    ,UserGuard 
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
