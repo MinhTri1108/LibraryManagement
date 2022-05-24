@@ -9,55 +9,39 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'Library Management';
-  public FullName:any;
+  public FullName: any;
 
-  constructor(
-    private userservice:UserService,
-    private router:Router
-    ){}
-  ngOnInit(): void {
-      
-  }
-  getinfo()
-  {
+  constructor(private userservice: UserService, private router: Router) {}
+  ngOnInit(): void {}
+  getinfo() {
     return this.userservice.getUserInfo();
   }
-  logout()
-  {
+
+  logout() {
     this.userservice.logout();
     this.router.navigateByUrl('/login');
   }
-  check()
-  {
-    const user = JSON.parse(localStorage.getItem('user') || 'null')
-    if(user !== null)
-    {
+  check() {
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    if (user !== null) {
       return true;
-    }
-    else
-    {
+    } else {
       return false;
     }
   }
-  checkUser():any
-  {
-    let auth=0;
-    const user = JSON.parse(localStorage.getItem('user') || 'null')
-    if(user !== null)
-    {
-      user.forEach((element: any)=>
-      {
-        if(element.Permission == 1)
-        {
-          auth=1;
+  checkUser(): any {
+    let auth = 0;
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    if (user !== null) {
+      user.forEach((element: any) => {
+        if (element.Permission == 1) {
+          auth = 1;
         }
-        if(element.Permission == 0)
-        {
-          auth=0;
+        if (element.Permission == 0) {
+          auth = 0;
         }
-      })
+      });
       return auth;
     }
   }
 }
-

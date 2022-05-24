@@ -8,16 +8,16 @@ import { LibraryManagement } from '../model/library-management';
   providedIn: 'root',
 })
 export class LibraryManagementService {
-  url = 'http://localhost/API/api/book/get.php';
+  // url = 'http://localhost/API/api/book/get.php';
   constructor(private http: HttpClient) {
     // this.getAllBook().subscribe((data) => {});
   }
 
-  // httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //   }),
-  // };
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
   getAllBook(): Observable<LibraryManagement[]> {
     return this.http.get<LibraryManagement[]>(
       'http://localhost/API/api/book/get.php'

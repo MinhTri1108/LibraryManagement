@@ -53,7 +53,37 @@
                   >
                     Trạng thái: Sách đã cho mượn
                   </p>
-                  <button class="btn btn-success">Thuê ngay</button>
+
+                  <div>
+                    <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">
+                      <div style="display: none">
+                        <input
+                          formControlName="Book_Ids"
+                          [(ngModel)]="book[0].Id"
+                          type="text"
+                          class="form-control"
+                          readonly
+                        /><br />
+                        <input
+                          formControlName="User_Ids"
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="iduser"
+                          readonly
+                        /><br />
+                        <!-- <input
+                          formControlName="TimeBook"
+                          type="datetime"
+                          [(ngModel)]="currentDateTime"
+                          readonly
+                        /> -->
+                      </div>
+
+                      <button type="submit" class="btn btn-success">
+                        Thuê ngay
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

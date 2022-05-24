@@ -27,7 +27,7 @@ export class ListBookComponent implements OnInit {
   }
   fetchAllBook(): void {
     this.librarymanagementService.getAllBook().subscribe((data) => {
-      // data = JSON.parse(JSON.stringify(data));
+      // data = JSON.parse(JS ON.stringify(data));
       // console.log(data);
       this.listBooks$ = data;
       // console.log(data);

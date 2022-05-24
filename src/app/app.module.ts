@@ -21,10 +21,12 @@ import { AuthguradService } from './services/authgurad.service';
 import { AuthenticationGuard } from './authentication.guard';
 import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
-UserGuard
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-chart.component';
+import { DatePipe } from '@angular/common';
+import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 @NgModule({
   declarations: [
-    
     AppComponent,
     CreateAccountComponent,
     ListAccountComponent,
@@ -36,6 +38,8 @@ UserGuard
     DetailsOrderComponent,
     ListBookComponent,
     EditBooksAndStoriesComponent,
+    BookRentalChartComponent,
+    RentalBookListComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,13 +48,15 @@ UserGuard
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    Ng2GoogleChartsModule,
   ],
   providers: [
-    LibraryManagementService
-    ,AuthguradService
-    ,AuthenticationGuard
-    ,AdminGuard
-    ,UserGuard 
+    LibraryManagementService,
+    AuthguradService,
+    AuthenticationGuard,
+    AdminGuard,
+    UserGuard,
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })

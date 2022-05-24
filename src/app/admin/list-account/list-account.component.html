@@ -1,70 +1,68 @@
 <body class="bg-light">
-    <div class="container-fluid w-90 p-3">
-        <div class="row my-5">
-            <div class="col">
-                <div class="card shadow">
-                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
-                        <h3 class="text-light">Danh sách Sách-Truyện</h3>
-                        <button class="btn btn-light">
-                <a href="" routerLink="/admin/Create-BookAndStories">Add</a>
-              </button>
-                    </div>
-                    <div class="card-body" id="show_all_adminaccounts">
-                        <div class="container">
-                            <div class="card">
-                                <div class="card-body">
-                                    <table class="table table-bordered table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Họ tên</th>
-                                                <th>Tên tài khoản</th>
-                                                <th>Mật khẩu</th>
-                                                <th>Quyền</th>
-                                                <th>Sửa</th>
-                                                <th>Xóa</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let item of users$">
-                                                <td>{{ item.Id }}</td>
-                                                <td>{{ item.FullName }}</td>
-                                                <td>{{ item.UserName }}</td>
-                                                <td>{{ item.Pass}}</td>
-                                                <td>
-                                                    <p *ngIf="item.Permission == 1">
-                                                        Quản trị viên
-                                                    </p>
-                                                    <p *ngIf="item.Permission == 0">
-                                                        Người dùng
-                                                    </p>
-                                                </td>
+  <div class="container-fluid w-90 p-3">
+    <div class="row my-5">
+      <div class="col">
+        <div class="card shadow">
+          <div
+            class="card-header bg-primary d-flex justify-content-between align-items-center"
+          >
+            <h3 class="text-light">Danh sách Sách-Truyện</h3>
+            <button class="btn btn-light">
+              <a href="" routerLink="/admin/Create-BookAndStories">Add</a>
+            </button>
+          </div>
+          <div class="card-body" id="show_all_adminaccounts">
+            <div class="container">
+              <div class="card">
+                <div class="card-body">
+                  <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Họ tên</th>
+                        <th>Tên tài khoản</th>
+                        <th>Mật khẩu</th>
+                        <th>Quyền</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of users$">
+                        <td>{{ item.Id }}</td>
+                        <td>{{ item.FullName }}</td>
+                        <td>{{ item.UserNAme }}</td>
+                        <td>{{ item.Pass }}</td>
+                        <td>
+                          <p *ngIf="item.Permission == 1">Quản trị viên</p>
+                          <p *ngIf="item.Permission == 0">Người dùng</p>
+                        </td>
 
-                                                <td>
-                                                    <button class="btn btn-success">
-                              <a
-                                routerLink="/admin/Edit-BookAndStories/{{
-                                  item.Id
-                                }}"
-                                style="color: white"
-                                >Sửa</a
-                              >
-                            </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger">
-                              <a href="" style="color: white">Xóa</a>
-                            </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <td>
+                          <button class="btn btn-success">
+                            <a
+                              routerLink="/admin/Edit-BookAndStories/{{
+                                item.Id
+                              }}"
+                              style="color: white"
+                              >Sửa</a
+                            >
+                          </button>
+                        </td>
+                        <td>
+                          <button class="btn btn-danger">
+                            <a href="" style="color: white">Xóa</a>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </body>

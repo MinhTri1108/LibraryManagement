@@ -14,7 +14,8 @@ import { RegisterComponent } from './view/register/register.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
-
+import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-chart.component';
+import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,43 +23,52 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   // admin
 
-  { path: 'admin/list-account', component: ListAccountComponent
-  ,canActivate:[AdminGuard]
- 
-},
+  {
+    path: 'admin/list-account',
+    component: ListAccountComponent,
+    canActivate: [AdminGuard],
+  },
   // { path: 'admin/list-account', loadChildren:()=> ListAccountComponent.then},
-  { path: 'admin/create-account', component: CreateAccountComponent,
-  canActivate:[AdminGuard]
-},
+  {
+    path: 'admin/create-account',
+    component: CreateAccountComponent,
+    canActivate: [AdminGuard],
+  },
   {
     path: 'admin/List-BookAndStories',
     component: ListBooksAndStoriesComponent,
-    canActivate:[AdminGuard],
-     
+    canActivate: [AdminGuard],
   },
   {
     path: 'admin/Create-BookAndStories',
     component: CreateBooksAndStoriesComponent,
-    canActivate:[AdminGuard]
-
+    canActivate: [AdminGuard],
   },
   {
     path: 'admin/Edit-BookAndStories/:id',
     component: EditBooksAndStoriesComponent,
-    canActivate:[AdminGuard]
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/Book-Rental-Chart',
+    component: BookRentalChartComponent,
+    canActivate: [AdminGuard],
   },
   // user
   {
     path: 'user/Profile',
     component: ProfileComponent,
-    canActivate:[UserGuard]
-
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'user/Rental-Book-List',
+    component: RentalBookListComponent,
+    canActivate: [UserGuard],
   },
   {
     path: 'user/Details-Order-Book/:id',
     component: DetailsOrderComponent,
-    canActivate:[UserGuard]
-
+    canActivate: [UserGuard],
   },
   // {
   //   path: 'user/List-Favorite-BookAndStories',
@@ -67,7 +77,7 @@ const routes: Routes = [
   {
     path: 'user/List-Book',
     component: ListBookComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard],
   },
   // { path: '**', redirectTo: '/register' },
 ];
