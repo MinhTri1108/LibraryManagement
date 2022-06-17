@@ -21,7 +21,8 @@ export class OrderBookService {
   create(data: any): Observable<OrderBook[]> {
     return this.http.post<OrderBook[]>(
       'http://localhost/API/api/orderbook/post.php',
-      data
+      JSON.stringify(data),
+      this.httpOptions
     );
   }
   countdata(): Observable<any> {
