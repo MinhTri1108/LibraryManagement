@@ -30,8 +30,12 @@ export class ListAccountComponent implements OnInit {
       console.log(this.users$);
     });
   }
-  deleteAccount(Id:any)
+  deleteAccount(id:number)
   {
-    
+    this.userService.destroyUser(id).subscribe((res) => {
+      this.users$ = this.users$.filter((item) => item.Id !== id);
+      console.log('Deleted ' + id + ' successfully');
+      alert('Xóa tài khoản thành công');
+    });
   }
 }
