@@ -18,7 +18,7 @@ export class EditBooksAndStoriesComponent implements OnInit {
   id!: string;
   book!: LibraryManagement[];
   bookForm!: FormGroup;
-  public statusbooks = ['0', '1'];
+  // public BooksForRentals = ['0'];
   constructor(
     private fb: FormBuilder,
     private librarymanagementService: LibraryManagementService,
@@ -35,7 +35,8 @@ export class EditBooksAndStoriesComponent implements OnInit {
       NameBook: new FormControl(null, Validators.required),
       DescribeBook: new FormControl(null, Validators.required),
       ImageBook: new FormControl(null, Validators.required),
-      StatusBook: new FormControl(this.statusbooks[0], Validators.required),
+      Amount: new FormControl(null, Validators.required),
+      BooksForRental: new FormControl(null, Validators.required),
     });
   }
   get f() {

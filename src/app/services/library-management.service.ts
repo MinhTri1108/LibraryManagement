@@ -39,7 +39,8 @@ export class LibraryManagementService {
   update(id: string, data: any): Observable<LibraryManagement[]> {
     return this.http.put<LibraryManagement[]>(
       'http://localhost/API/api/book/put.php?id=' + id,
-      data
+      JSON.stringify(data),
+      this.httpOptions
     );
   }
   delete(id: any): Observable<LibraryManagement[]> {

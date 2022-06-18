@@ -19,9 +19,11 @@
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>NameBook</th>
-                        <th>DescribeBook</th>
-                        <th>StatusBook</th>
+                        <th>Tên sách</th>
+                        <th>Mô tả</th>
+                        <th>Số lượng sách</th>
+                        <th>Số lượng sách đã cho mượn</th>
+                        <th>Trạng thái</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                       </tr>
@@ -31,11 +33,19 @@
                         <td>{{ item.Id }}</td>
                         <td>{{ item.NameBook }}</td>
                         <td>{{ item.DescribeBook }}</td>
+                        <td>{{ item.Amount }}</td>
+                        <td>{{ item.BooksForRental }}</td>
                         <td>
-                          <p *ngIf="item.StatusBook == 1" style="color: green">
+                          <p
+                            *ngIf="item.Amount - item.BooksForRental != 0"
+                            style="color: green"
+                          >
                             Còn sách
                           </p>
-                          <p *ngIf="item.StatusBook == 0" style="color: red">
+                          <p
+                            *ngIf="item.Amount - item.BooksForRental == 0"
+                            style="color: red"
+                          >
                             Sách đã cho mượn
                           </p>
                         </td>

@@ -30,7 +30,6 @@ export class DetailsOrderComponent implements OnInit {
     private librarymanagementService: LibraryManagementService,
     private userservice: UserService,
     private orderbookservice: OrderBookService,
-    public datepipe: DatePipe,
     private router: Router
   ) {}
 
@@ -69,8 +68,12 @@ export class DetailsOrderComponent implements OnInit {
   }
   orderBook() {
     console.log(this.orderGroup.value);
-    this.orderbookservice.create(this.orderGroup.value);
-    alert('Thuê sách thành công');
-    this.router.navigateByUrl('admin/List-BookAndStories');
+    this.orderbookservice
+      .create(this.orderGroup.value)
+      .subscribe((res: any) => {
+        // this.librarymanagementService.update()
+        alert('Thuê sách thành công');
+        this.router.navigateByUrl('admin/List-BookAndStories');
+      });
   }
 }

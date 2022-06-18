@@ -13,5 +13,6 @@ export interface LibraryManagement {
   NameBook: string;
   DescribeBook: string;
   ImageBook: string;
-  StatusBook: number;
+  Amount: number;
+  BooksForRental: number;
 }

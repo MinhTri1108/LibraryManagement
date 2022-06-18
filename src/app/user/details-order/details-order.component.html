@@ -29,10 +29,7 @@
                   {{ book | json }}
                 </pre> -->
                 <div class="col-6">
-                  <img
-                    src="https://sachcanhdieu.com/wp-content/uploads/sites/2/2020/03/sach-dao-duc-1.jpg"
-                    alt=""
-                  />
+                  <img src="{{ book[0].ImageBook }}" alt="" />
                 </div>
                 <div class="col-6">
                   <p style="font-size: 50px">
@@ -41,18 +38,18 @@
                   <p style="font-size: 20px">
                     Mô tả: {{ book[0].DescribeBook }}
                   </p>
-                  <p
-                    *ngIf="book[0].StatusBook == 1"
+                  <!-- <p
+                    *ngIf="book[0].BooksForRental == 1"
                     style="color: green; font-size: 20px"
                   >
                     Trạng thái: Còn sách
                   </p>
                   <p
-                    *ngIf="book[0].StatusBook == 0"
+                    *ngIf="book[0].BooksForRental == 0"
                     style="color: red; font-size: 20px"
                   >
                     Trạng thái: Sách đã cho mượn
-                  </p>
+                  </p> -->
 
                   <div>
                     <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">

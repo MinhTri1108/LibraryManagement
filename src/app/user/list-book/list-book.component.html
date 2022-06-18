@@ -29,12 +29,27 @@
                         <div style="margin-top: 10px">
                           <p>ID: {{ item.Id }}</p>
                           <p>Tên Sách: {{ item.NameBook }}</p>
-                          <p>Mô tả: {{ item.DescribeBook }}</p>
-                          <p *ngIf="item.StatusBook == 1" style="color: green">
+                          <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
+                          <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
                             Trạng thái: Còn sách
                           </p>
-                          <p *ngIf="item.StatusBook == 0" style="color: red">
+                          <p *ngIf="item.BooksForRental == 0" style="color: red">
                             Trạng thái: Sách đã cho mượn
+                          </p> -->
+                          <p>
+                            Trạng thái:
+                            <small
+                              *ngIf="item.Amount - item.BooksForRental != 0"
+                              style="color: green"
+                            >
+                              Còn sách
+                            </small>
+                            <small
+                              *ngIf="item.Amount - item.BooksForRental == 0"
+                              style="color: red"
+                            >
+                              Sách đã cho mượn
+                            </small>
                           </p>
                         </div>
                         <!-- <button class="btn btn-danger">Xóa khỏi danh sách</button> -->

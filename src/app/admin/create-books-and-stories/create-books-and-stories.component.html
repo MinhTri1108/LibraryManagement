@@ -84,19 +84,50 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">StatusBook</label>
-                  <select
+                  <label for="exampleFormControlInput2">Amount Book</label>
+                  <input
+                    formControlName="Amount"
+                    type="email"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Số lượng sách...."
+                  />
+                  <div
+                    *ngIf="f['Amount'].touched && f['Amount'].invalid"
+                    class="alert alert-danger"
+                  >
+                    <div
+                      *ngIf="
+                        f['Amount'].errors && f['Amount'].errors['required']
+                      "
+                    >
+                      Amount trống
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Cho mượn</label>
+                  <input
                     class="form-control"
                     id="exampleFormControlSelect1"
-                    formControlName="StatusBook"
+                    formControlName="BooksForRental"
+                    placeholder="Số lượng sách...."
+                  />
+                  <div
+                    *ngIf="
+                      f['BooksForRental'].touched && f['BooksForRental'].invalid
+                    "
+                    class="alert alert-danger"
                   >
-                    <option
-                      *ngFor="let StatusBook of statusbooks"
-                      [ngValue]="StatusBook"
+                    <div
+                      *ngIf="
+                        f['BooksForRental'].errors &&
+                        f['BooksForRental'].errors['required']
+                      "
                     >
-                      {{ StatusBook }}
-                    </option>
-                  </select>
+                      BooksForRental trống
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <button class="btn btn-primary" type="submit">Save</button>

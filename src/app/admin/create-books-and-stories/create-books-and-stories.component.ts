@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 export class CreateBooksAndStoriesComponent implements OnInit {
   public book!: LibraryManagement;
   public bookForm: FormGroup;
-  public statusbooks = ['0', '1'];
   constructor(
     private fb: FormBuilder,
     private librarymanagementService: LibraryManagementService,
@@ -26,7 +25,8 @@ export class CreateBooksAndStoriesComponent implements OnInit {
       NameBook: new FormControl(null, Validators.required),
       DescribeBook: new FormControl(null, Validators.required),
       ImageBook: new FormControl(null, Validators.required),
-      StatusBook: new FormControl(this.statusbooks[0], Validators.required),
+      Amount: new FormControl(null, Validators.required),
+      BooksForRental: new FormControl(null, Validators.required),
     });
   }
 
