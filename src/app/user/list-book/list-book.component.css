@@ -2,14 +2,20 @@
   border: 1px solid;
   border-radius: 5px;
   padding: 20px;
+  width: 260px;
+  height: 520px;
 }
 .header {
   text-align: center;
 }
 #img {
-  width: 200px;
-  height: 300px;
+  width: 180px;
+  height: 270px;
 }
 #ahref {
   color: white;
+}
+#noidung {
+  width: 220px;
+  height: 150px;
 }

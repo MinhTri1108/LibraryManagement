@@ -52,27 +52,4 @@ export class EditBooksAndStoriesComponent implements OnInit {
         this.router.navigateByUrl('admin/List-BookAndStories');
       });
   }
-  // createBook(bookForm: FormGroup) {
-  //   if (bookForm.valid) {
-  //     this.book = new LibraryManagement(
-  //       bookForm.value.name,
-  //       bookForm.value.code,
-  //       bookForm.value.price,
-  //       bookForm.value.price,
-  //       bookForm.value.exchange,
-  //       false
-  //     );
-  //     this.librarymanagementService.createBook(this.book).subscribe(
-  //       (result: any) => {
-  //         // this.message = result.msg;
-  //         // this.book = new StoLibraryManagementck('', '', 0, 0, 'NASDAQ', false);
-  //       }
-  //       // (err: { message: string }) => {
-  //       //   this.message = err.message;
-  //       // }
-  //     );
-  //   } else {
-  //     console.error('Stock form is in an invalid state');
-  //   }
-  // }
 }

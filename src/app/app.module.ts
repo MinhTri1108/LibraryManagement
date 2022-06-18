@@ -26,6 +26,8 @@ import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-
 import { DatePipe } from '@angular/common';
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 import { EditAccountComponent } from './admin/edit-account/edit-account.component';
+import { ListBookOfRentalComponent } from './admin/list-book-of-rental/list-book-of-rental.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,7 @@ import { EditAccountComponent } from './admin/edit-account/edit-account.componen
     BookRentalChartComponent,
     RentalBookListComponent,
     EditAccountComponent,
+    ListBookOfRentalComponent,
   ],
   imports: [
     BrowserModule,

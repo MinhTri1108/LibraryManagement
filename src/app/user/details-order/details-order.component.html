@@ -29,11 +29,11 @@
                   {{ book | json }}
                 </pre> -->
                 <div class="col-6">
-                  <img src="{{ book[0].ImageBook }}" alt="" />
+                  <img src="{{ book[0].ImageBook }}" alt="" id="hinh" />
                 </div>
                 <div class="col-6">
                   <p style="font-size: 50px">
-                    Tên sách: {{ book[0].NameBook }}
+                    Tên sách: <b>{{ book[0].NameBook }}</b>
                   </p>
                   <p style="font-size: 20px">
                     Mô tả: {{ book[0].DescribeBook }}
@@ -52,34 +52,49 @@
                   </p> -->
 
                   <div>
-                    <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">
-                      <div style="display: none">
-                        <input
-                          formControlName="Book_Ids"
-                          [(ngModel)]="book[0].Id"
-                          type="text"
-                          class="form-control"
-                          readonly
-                        /><br />
-                        <input
-                          formControlName="User_Ids"
-                          type="text"
-                          class="form-control"
-                          [(ngModel)]="iduser"
-                          readonly
-                        /><br />
-                        <!-- <input
+                    <div class="row">
+                      <div class="col-3">
+                        <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">
+                          <div style="display: none">
+                            <input
+                              formControlName="Book_Ids"
+                              [(ngModel)]="book[0].Id"
+                              type="text"
+                              class="form-control"
+                              readonly
+                            /><br />
+                            <input
+                              formControlName="User_Ids"
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="iduser"
+                              readonly
+                            /><br />
+                            <!-- <input
                           formControlName="TimeBook"
                           type="datetime"
                           [(ngModel)]="currentDateTime"
                           readonly
                         /> -->
-                      </div>
+                          </div>
 
-                      <button type="submit" class="btn btn-success">
-                        Thuê ngay
-                      </button>
-                    </form>
+                          <button type="submit" class="btn btn-success">
+                            Thuê ngay
+                          </button>
+                        </form>
+                      </div>
+                      <div class="col-9">
+                        <button
+                          class="btn btn-secondary"
+                          style="
+                            background-color: #f9b5f3 !important;
+                            margin-left: 20px;
+                          "
+                        >
+                          Yêu thích
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

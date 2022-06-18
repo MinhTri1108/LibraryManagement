@@ -26,9 +26,13 @@
                         <div class="header">
                           <img id="img" src="{{ item.ImageBook }}" alt="" />
                         </div>
-                        <div style="margin-top: 10px">
-                          <p>ID: {{ item.Id }}</p>
-                          <p>Tên Sách: {{ item.NameBook }}</p>
+                        <div id="noidung" style="margin-top: 10px">
+                          <p>
+                            ID: <b>{{ item.Id }}</b>
+                          </p>
+                          <p>
+                            Tên Sách: <b>{{ item.NameBook }}</b>
+                          </p>
                           <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
                           <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
                             Trạng thái: Còn sách
@@ -42,13 +46,13 @@
                               *ngIf="item.Amount - item.BooksForRental != 0"
                               style="color: green"
                             >
-                              Còn sách
+                              <b>Còn sách</b>
                             </small>
                             <small
                               *ngIf="item.Amount - item.BooksForRental == 0"
                               style="color: red"
                             >
-                              Sách đã cho mượn
+                              <b>Sách đã cho mượn</b>
                             </small>
                           </p>
                         </div>
@@ -64,6 +68,15 @@
                               }}"
                               >Thuê Sách</a
                             >
+                          </button>
+                          <button
+                            class="btn btn-secondary"
+                            style="
+                              background-color: #f9b5f3 !important;
+                              margin-left: 5px;
+                            "
+                          >
+                            Yêu thích
                           </button>
                         </div>
                       </div>
