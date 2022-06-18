@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-account.component.css'],
 })
 export class ListAccountComponent implements OnInit {
-  public users$: User[] = [];
+  public users: User[] = [];
 
   constructor(
     private userService: UserService,
@@ -26,14 +26,14 @@ export class ListAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe((snaps: any) => {
-      this.users$ = snaps;
-      console.log(this.users$);
+      this.users = snaps;
+      console.log(this.users);
     });
   }
   deleteAccount(id:number)
   {
     this.userService.destroyUser(id).subscribe((res) => {
-      this.users$ = this.users$.filter((item) => item.Id !== id);
+      this.users = this.users.filter((item) => item.Id !== id);
       console.log('Deleted ' + id + ' successfully');
       alert('Xóa tài khoản thành công');
     });

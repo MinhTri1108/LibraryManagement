@@ -89,8 +89,7 @@ export class UserService {
   updateUser(EditAccountForm:any,id:any): Observable<User[]> {
     return this.http.put<User[]>(
       this.url + '/put.php?id='+id,
-      JSON.stringify(EditAccountForm),
-      this.httpOptions
+      JSON.stringify(EditAccountForm)
       );
   }
   getUser(id: any): Observable<User[]> {

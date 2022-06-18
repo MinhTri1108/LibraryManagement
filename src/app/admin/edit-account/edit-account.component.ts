@@ -32,8 +32,8 @@ export class EditAccountComponent implements OnInit {
       this.user = data;
     });
     this.EditAccountForm = this.fb.group({
-      Fullname: new FormControl(null, Validators.required),
-      Username: new FormControl(null, Validators.required),
+      FullName: new FormControl(null, Validators.required),
+      UserName: new FormControl(null, Validators.required),
       Pass: new FormControl(null, Validators.required),
       Permission: new FormControl(null, Validators.required),
     });
@@ -42,16 +42,14 @@ export class EditAccountComponent implements OnInit {
   {
     return this.id = this.route.snapshot.params['id'];
   }
-  UpdateAccount(EditAccountForm:any)
+  UpdateAccount()
   {
-    if(EditAccountForm != null)
-    {
+    console.log(this.EditAccountForm.value);
       this.userService.updateUser(this.EditAccountForm.value,this.getIdUser())
       .subscribe((res:any)=>{
         console.warn(res);
         alert('Cập nhập thông tin thành công');
-        this.router.navigateByUrl('user/List-Account');
+        this.router.navigateByUrl('admin/list-account');
       })
-    }
   }
 }
