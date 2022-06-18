@@ -30,4 +30,8 @@ export class ListAccountComponent implements OnInit {
       console.log(this.users$);
     });
   }
+  deleteAccount(Id:any)
+  {
+    
+  }
 }

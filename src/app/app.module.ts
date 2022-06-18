@@ -25,6 +25,7 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-chart.component';
 import { DatePipe } from '@angular/common';
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
+import { EditAccountComponent } from './admin/edit-account/edit-account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { RentalBookListComponent } from './user/rental-book-list/rental-book-lis
     EditBooksAndStoriesComponent,
     BookRentalChartComponent,
     RentalBookListComponent,
+    EditAccountComponent,
   ],
   imports: [
     BrowserModule,

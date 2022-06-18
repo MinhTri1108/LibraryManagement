@@ -1,0 +1,57 @@
+<body class="bg-light">
+    <div class="container-fluid w-90 p-3">
+        <div class="row my-5">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+                        <h3 class="text-light">Sửa thông tin tài khoản</h3>
+                        <!-- <button class="btn btn-light">
+                <a href="" routerLink="/admin/List-BookAndStories">Back</a>
+              </button> -->
+                    </div>
+                    <div class="card-body" id="">
+                        <div class="container">
+                            <form [formGroup]="EditAccountForm" (ngSubmit)="UpdateAccount(EditAccountForm.value)">
+                                <div class="form-group">
+                                    <label for="">Fullname</label>
+                                    <input formControlName="Fullname" [(ngModel)]="user[0].FullName" class="form-control" id="exampleFormControlInput1" placeholder="Nhập họ và tên" />
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="">Username</label>
+                                        <input formControlName="Username" [(ngModel)]="user[0].UserName" class="form-control" id="exampleFormControlInput1" placeholder="Tên tài khoản" />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="">Password</label>
+                                        <input type="password" formControlName="Pass" [(ngModel)]="user[0].Pass" class="form-control" id="exampleFormControlInput1" placeholder="Mật khẩu" />
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="">Permission</label>
+                                    <select class="form-control" formControlName="Permission" id="">
+                                        <option selected [(ngModel)]="user[0].Permission">
+                                            <div *ngIf="user[0].Permission == 0; else templateName">
+                                                User
+                                            </div>
+                                            <ng-template #templateName>
+                                                <div>
+                                                    Admin
+                                                </div>   
+                                            </ng-template>
+                                        </option>
+                                        <option selected>Phân quyền </option>
+                                        <option value="0">User</option>
+                                        <option value="1">Admin</option>
+                                    </select>
+                                </div> -->
+                                <div>
+                                    <button class="btn btn-primary btn-lg btn-block">Sửa tài khoản</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

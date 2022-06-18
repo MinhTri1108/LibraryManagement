@@ -16,7 +16,7 @@ import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
 import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-chart.component';
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
-
+import { EditAccountComponent } from './admin/edit-account/edit-account.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -32,6 +32,11 @@ const routes: Routes = [
   {
     path: 'admin/create-account',
     component: CreateAccountComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/edit-account/:id',
+    component: EditAccountComponent,
     canActivate: [AdminGuard],
   },
   {

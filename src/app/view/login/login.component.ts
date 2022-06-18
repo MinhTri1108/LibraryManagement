@@ -67,8 +67,8 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value)
-      .subscribe({
-        next: data => {
+      .subscribe(
+        data => {
           // console.log(data);
           data.forEach( (element) => {
             if(element != null)
@@ -87,38 +87,12 @@ export class LoginComponent implements OnInit {
                 }
               }
             })  
-
-      this.userService.login(this.loginForm.value).subscribe({
-        next: (data) => {
-          console.log(data);
-          data.forEach((element) => {
-            if (element != null) {
-              if (element.Permission == 0) {
-                alert('Đăng nhập thành công user');
-              } else {
-                alert('Đăng nhập thành công admin');
-              }
-              // switch (element.Permission) {
-              //   case 0:
-              //     alert('Đăng nhập thành công user');
-              //     this.router.navigateByUrl('');
-              //     break;
-              //   case 1:
-              //     alert('Đăng nhập thành công admin');
-              //     break;
-              //   default:
-              //     alert('Đăng nhập thất bại');
-              //     break;
-              // }
-            }
-          });
-        },
-        error: (error) => {
-          console.log('ban login that bai', error);
-        },
-      });
-    }
-  })
+    },
+    error => {
+      alert('Bạn đã đăng nhập thất bại');
+      // console.log('ban login that bai');
+    },
+  )
   }
   }
 }

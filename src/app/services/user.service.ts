@@ -10,20 +10,23 @@ import {
   tap,
 } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private currentUserSubject = new BehaviorSubject<any>(null);
+  // private currentUserSubject: BehaviorSubject();
+  // const subject = new BehaviorSubject();
   // private currentUser!: BehaviorSubject<User>;
   url = 'http://localhost/API/api/user';
-  // urlLogin='http://localhost/API/API/api/user/login.php';
-  // urlPost='http://localhost/API/API/api/user/post.php';
+ 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
+  // currentUserSubject: any;
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
@@ -45,20 +48,26 @@ export class UserService {
         this.httpOptions
       )
       .pipe(
-        map((user) => {
+        map(
+          (user) => {
           // user.forEach((element)=>{
           //   localStorage.setItem('permission', JSON.stringify(element.Permission));
           // })
-          // this.currentUserSubject.next(user)
+          // const check=this.currentUserSubject.next(user)
+          // console.log(this.currentUserSubject.next(user));
+          // this.currentUserSubject.next(user);
           localStorage.setItem('user', JSON.stringify(user));
+          // console.log(this.currentUserSubject.next(user));
           return user;
-        })
+        }
+        ),
       );
   }
   logout() {
     localStorage.removeItem('user');
     // localStorage.removeItem('permission');
     alert('Bạn đã đăng xuất thành công');
+    this.currentUserSubject.next(null);
     // this.currentUserSubject.next(null);
   }
   register(createForm: any): Observable<User[]> {
@@ -74,11 +83,18 @@ export class UserService {
   addUser(): Observable<User[]> {
     return this.http.get<User[]>(this.url);
   }
-  destroyUser(): Observable<User[]> {
-    return this.http.get<User[]>(this.url);
+  destroyUser(id:any): Observable<User[]> {
+    return this.http.delete<User[]>(this.url+'detail.php?id='+id,this.httpOptions);
   }
-  updateUsesr(): Observable<User[]> {
-    return this.http.get<User[]>(this.url);
+  updateUser(EditAccountForm:any,id:any): Observable<User[]> {
+    return this.http.put<User[]>(
+      this.url + '/put.php?id='+id,
+      JSON.stringify(EditAccountForm),
+      this.httpOptions
+      );
+  }
+  getUser(id: any): Observable<User[]> {
+    return this.http.get<User[]>(this.url +'/detail.php?id='+id);
   }
   getUserInfo() {
     let fullname = '';
