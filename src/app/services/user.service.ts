@@ -83,8 +83,8 @@ export class UserService {
   addUser(): Observable<User[]> {
     return this.http.get<User[]>(this.url);
   }
-  destroyUser(id:any): Observable<User[]> {
-    return this.http.delete<User[]>(this.url+'detail.php?id='+id,this.httpOptions);
+  destroyUser(id:number): Observable<User[]> {
+    return this.http.delete<User[]>(this.url+'/delete.php?id='+id,this.httpOptions);
   }
   updateUser(EditAccountForm:any,id:any): Observable<User[]> {
     return this.http.put<User[]>(
