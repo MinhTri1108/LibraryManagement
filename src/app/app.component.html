@@ -186,6 +186,15 @@
               >Biểu đồ cho thuê sách</a
             >
           </li>
+          <li *ngIf="checkUser() == 1" class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="admin/list-book-of-rental"
+              routerLinkActive="active"
+              href="#"
+              >Danh sách sách đã cho thuê</a
+            >
+          </li>
           <form *ngIf="checkUser() == 0" class="form-inline my-2 my-lg-0">
             <input
               class="form-control mr-sm-2"

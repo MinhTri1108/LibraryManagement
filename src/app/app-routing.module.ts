@@ -17,6 +17,7 @@ import { UserGuard } from './auth/user.guard';
 import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-chart.component';
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 import { EditAccountComponent } from './admin/edit-account/edit-account.component';
+import { ListBookOfRentalComponent } from './admin/list-book-of-rental/list-book-of-rental.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'admin/create-account',
     component: CreateAccountComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/list-book-of-rental',
+    component: ListBookOfRentalComponent,
     canActivate: [AdminGuard],
   },
   {
