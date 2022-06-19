@@ -10,6 +10,8 @@ import { OrderBook } from 'src/app/model/order-book';
 })
 export class ListBookOfRentalComponent implements OnInit {
   public listBookRental: OrderBook[] = [];
+  public Status: any;
+  id!: string;
   constructor(
     private orderbookService: OrderBookService,
     private route: ActivatedRoute
@@ -17,6 +19,8 @@ export class ListBookOfRentalComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchAllBookRental();
+    this.Status = 1;
+    // this.giveBookBack();
   }
   fetchAllBookRental(): void {
     this.orderbookService.getRentalBook().subscribe((data) => {
@@ -24,7 +28,9 @@ export class ListBookOfRentalComponent implements OnInit {
       this.listBookRental = data;
     });
   }
-  giveBookBack(): void {}
+  giveBookBack(): void {
+    console.log(this.Status);
+  }
   counter(i: number) {
     return new Array(i);
   }

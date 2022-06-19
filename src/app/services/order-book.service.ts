@@ -30,4 +30,11 @@ export class OrderBookService {
       'http://localhost/API/api/orderbook/countBook.php'
     );
   }
+  updateRentalBook(id: string, data: any): Observable<OrderBook[]> {
+    return this.http.put<OrderBook[]>(
+      'http://localhost/API/api/orderbook/givebookback.php?id=' + id,
+      JSON.stringify(data),
+      this.httpOptions
+    );
+  }
 }

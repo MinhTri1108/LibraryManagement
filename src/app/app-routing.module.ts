@@ -18,6 +18,7 @@ import { BookRentalChartComponent } from './admin/book-rental-chart/book-rental-
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 import { EditAccountComponent } from './admin/edit-account/edit-account.component';
 import { ListBookOfRentalComponent } from './admin/list-book-of-rental/list-book-of-rental.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -76,6 +77,7 @@ const routes: Routes = [
     component: RentalBookListComponent,
     canActivate: [UserGuard],
   },
+
   {
     path: 'user/Details-Order-Book/:id',
     component: DetailsOrderComponent,
