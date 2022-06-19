@@ -47,9 +47,9 @@ export class LibraryManagementService {
       'http://localhost/API/api/bookfavorites/delete.php?id='+id,
     );
   }
-  createBookfavorites(data:any):Observable<BookFavorites[]> {
+  createBookfavorites(book:any, user:any):Observable<BookFavorites[]> {
     return this.http.post<BookFavorites[]>(
-      'http://localhost/API/api/bookfavorites/post.php',data
+      'http://localhost/API/api/bookfavorites/post.php',book
     );
   }
   getAllBookrental(id:any): Observable<OrderBook[]> {
