@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
 import { OrderBook } from 'src/app/model/order-book';
 import { LibraryManagementService } from 'src/app/services/library-management.service';
 import { UserService } from 'src/app/services/user.service';
@@ -24,6 +25,8 @@ export class RentalBookListComponent implements OnInit {
         this.bookrental=res;
         console.log(this.bookrental);
     })
+    
   }
+  
 
 }

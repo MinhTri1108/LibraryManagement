@@ -20,11 +20,23 @@ export class LibraryManagementService {
       'Content-Type': 'application/json',
     }),
   };
+  // id book
+  // checkBookFavorite(book: any,user:any): Observable<LibraryManagement[]> {
+  //   return this.http.get<LibraryManagement[]>(
+  //     'http://localhost/API/api/bookfavorites/checkbookfavorites.php?idbook='+book+'&iduser='+user
+  //   );
+  // }
+  checkBookFavorite(): Observable<LibraryManagement[]> {
+    return this.http.get<LibraryManagement[]>(
+      'http://localhost/API/api/bookfavorites/checkbookfavorites.php?idbook=17&iduser=10'
+    );
+  }
   getAllBook(): Observable<LibraryManagement[]> {
     return this.http.get<LibraryManagement[]>(
       'http://localhost/API/api/book/get.php'
     );
   }
+  //  id user
   getAllBookFavorites(id:any): Observable<BookFavorites[]> {
     return this.http.get<BookFavorites[]>(
       'http://localhost/API/api/bookfavorites/get.php?id='+id
@@ -33,6 +45,11 @@ export class LibraryManagementService {
   deleteBookFavorites(id:any): Observable<BookFavorites[]> {
     return this.http.delete<BookFavorites[]>(
       'http://localhost/API/api/bookfavorites/delete.php?id='+id,
+    );
+  }
+  createBookfavorites(data:any):Observable<BookFavorites[]> {
+    return this.http.post<BookFavorites[]>(
+      'http://localhost/API/api/bookfavorites/post.php',data
     );
   }
   getAllBookrental(id:any): Observable<OrderBook[]> {
