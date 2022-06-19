@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes"
-    />
+
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta
@@ -12,65 +10,21 @@
       content="width=
   , initial-scale=1.0"
     /> -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
-      integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-      integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     <title></title>
-  </head>
+</head>
 
-  <body>
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-      <a
-        *ngIf="checkUser() == 0"
-        class="navbar-brand"
-        href="#"
-        routerLink="user/List-Book"
-        routerLinkActive="active"
-        >Thư viện</a
+        <a *ngIf="checkUser() == 0" class="navbar-brand" href="#" routerLink="user/List-Book" routerLinkActive="active">Thư viện</a
       >
       <button
         class="navbar-toggler"
@@ -103,7 +57,7 @@
           <li *ngIf="checkUser() == 0" class="nav-item">
             <a
               class="nav-link"
-              routerLink="user/List-Book-Favorite"
+              routerLink="user/List-Book-Favorites"
               routerLinkActive="active"
               href="#"
               >Sách yêu thích</a
@@ -122,13 +76,8 @@
             >
               Quản lý tài khoản
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a
-                class="dropdown-item"
-                routerLink="admin/create-account"
-                routerLinkActive="active"
-                href="#"
-                >Thêm tài khoản</a
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="admin/create-account" routerLinkActive="active" href="#">Thêm tài khoản</a
               >
               <a
                 class="dropdown-item"
@@ -139,32 +88,21 @@
               >
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li *ngIf="checkUser() == 1" class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-            >
+        </div>
+        </li>
+        <li *ngIf="checkUser() == 1" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
               Quản lý Sách-Truyện
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- <a
+                <!-- <a
                 class="dropdown-item"
                 routerLink="admin/List-BookAndStories"
                 routerLinkActive="active"
                 href="#"
                 >Thể loại</a
               > -->
-              <a
-                class="dropdown-item"
-                routerLink="admin/List-BookAndStories"
-                routerLinkActive="active"
-                href="#"
-                >Danh sách Sách</a
+                <a class="dropdown-item" routerLink="admin/List-BookAndStories" routerLinkActive="active" href="#">Danh sách Sách</a
               >
               <a
                 class="dropdown-item"
@@ -176,14 +114,9 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
-          </li>
-          <li *ngIf="checkUser() == 1" class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="admin/Book-Rental-Chart"
-              routerLinkActive="active"
-              href="#"
-              >Biểu đồ cho thuê sách</a
+        </li>
+        <li *ngIf="checkUser() == 1" class="nav-item">
+            <a class="nav-link" routerLink="admin/Book-Rental-Chart" routerLinkActive="active" href="#">Biểu đồ cho thuê sách</a
             >
           </li>
           <li *ngIf="checkUser() == 1" class="nav-item">
@@ -225,24 +158,19 @@
                 <a class="dropdown-item" href="#">Logout</a>
             </div>
         </li> -->
-          <li *ngIf="check() == true" class="nav-item">
+        <li *ngIf="check() == true" class="nav-item">
             <h5 class="nav-link mr-3">{{ getinfo() }}</h5>
-          </li>
-          <div *ngIf="check() == true; else templateName">
+        </li>
+        <div *ngIf="check() == true; else templateName">
             <form (ngSubmit)="logout()">
-              <li class="nav-item">
-                <button class="btn btn-secondary">logout</button>
-              </li>
+                <li class="nav-item">
+                    <button class="btn btn-secondary">logout</button>
+                </li>
             </form>
-          </div>
-          <ng-template #templateName>
+        </div>
+        <ng-template #templateName>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                routerLink="/login"
-                routerLinkActive="active"
-                href="#"
-                >Login</a
+                <a class="nav-link" routerLink="/login" routerLinkActive="active" href="#">Login</a
               >
             </li>
             <li class="nav-item">

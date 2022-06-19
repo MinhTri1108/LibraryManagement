@@ -27,6 +27,7 @@ import { DatePipe } from '@angular/common';
 import { RentalBookListComponent } from './user/rental-book-list/rental-book-list.component';
 import { EditAccountComponent } from './admin/edit-account/edit-account.component';
 import { ListBookOfRentalComponent } from './admin/list-book-of-rental/list-book-of-rental.component';
+import { ListBooksFavoritesComponent } from './user/list-books-favorites/list-books-favorites.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ListBookOfRentalComponent } from './admin/list-book-of-rental/list-book
     RentalBookListComponent,
     EditAccountComponent,
     ListBookOfRentalComponent,
+    ListBooksFavoritesComponent,
   ],
   imports: [
     BrowserModule,
