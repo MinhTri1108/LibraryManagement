@@ -37,6 +37,7 @@ export class ListBookOfRentalComponent implements OnInit {
     this.orderbookService.updateRentalBook(id).subscribe((res: any) => {
       console.log('đánh dấu thành công');
       // alert('Update sách thành công');
+      this.fetchAllBookRental();
       console.log(res);
     });
   }

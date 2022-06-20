@@ -1,111 +1,122 @@
 <body class="bg-light">
-  <div class="container-fluid w-90 p-3">
-    <div class="row my-5">
-      <div class="col">
-        <div class="card shadow">
-          <div
-            class="card-header bg-primary d-flex justify-content-between align-items-center"
-          >
-            <h3 class="text-light">Danh sách Sách-Truyện</h3>
-            <!-- <button class="btn btn-light"><a href="">Add</a></button> -->
-          </div>
-          <div class="card-body" id="show_all_adminaccounts">
-            <div class="container">
-              <div class="row" style="row-gap: 20px">
-                <!-- <pre>
+    <div class="container-fluid w-90 p-3">
+        <div class="row my-5">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+                        <h3 class="text-light">Danh sách Sách-Truyện</h3>
+                        <!-- <button class="btn btn-light"><a href="">Add</a></button> -->
+                    </div>
+                    <div class="card-body" id="show_all_adminaccounts">
+                        <div class="container">
+                            <div class="row" style="row-gap: 20px">
+                                <!-- <pre>
                   {{ listBooks$ | json }}
                 </pre> -->
-                <div class="col-12 col-md-3" *ngFor="let item of listBooks$">
-                  <div class="item">
-                    <div class="row">
-                      <!-- <div class="col-10"></div>
+                                <div class="col-12 col-md-3" *ngFor="let item of listBooks$">
+                                    <!-- <form [formGroup]="bookForm">
+                                        <div style="display: none">
+                                            <input formControlName="Book_Ids" [(ngModel)]="item.Id" type="text" class="form-control" /><br />
+                                            <input formControlName="User_Ids" type="text" class="form-control" [(ngModel)]="iduser" /><br />
+                                        </div>
+                                    </form> -->
+                                    <div class="item">
+                                        <div class="row">
+                                            <!-- <div class="col-10"></div>
                       <div class="col-2">
                         <button class="btn btn-danger">X</button>
                       </div> -->
-                      <div class="col-12">
-                        <div class="header">
-                          <img id="img" src="{{ item.ImageBook }}" alt="" />
-                        </div>
-                        <div id="noidung" style="margin-top: 10px">
-                          <p>
-                            ID: <b>{{ item.Id }}</b>
-                          </p>
-                          <p>
-                            Tên Sách: <b>{{ item.NameBook }}</b>
-                          </p>
-                          <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
-                          <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
+                                            <div class="col-12">
+                                                <div class="header">
+                                                    <img id="img" src="{{ item.ImageBook }}" alt="" />
+                                                </div>
+                                                <div id="noidung" style="margin-top: 10px">
+                                                    <p>
+                                                        ID: <b>{{ item.Id }}</b>
+                                                    </p>
+                                                    <p>
+                                                        Tên Sách: <b>{{ item.NameBook }}</b>
+                                                    </p>
+                                                    <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
+                                                    <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
                             Trạng thái: Còn sách
                           </p>
                           <p *ngIf="item.BooksForRental == 0" style="color: red">
                             Trạng thái: Sách đã cho mượn
                           </p> -->
-                          <p>
-                            Trạng thái:
-                            <small
-                              *ngIf="item.Amount - item.BooksForRental != 0"
-                              style="color: green"
-                            >
+                                                    <p>
+                                                        Trạng thái:
+                                                        <small *ngIf="item.Amount - item.BooksForRental != 0" style="color: green">
                               <b>Còn sách</b>
                             </small>
-                            <small
-                              *ngIf="item.Amount - item.BooksForRental == 0"
-                              style="color: red"
-                            >
+                                                        <small *ngIf="item.Amount - item.BooksForRental == 0" style="color: red">
                               <b>Sách đã cho mượn</b>
                             </small>
-                          </p>
-                        </div>
-                        <!-- <button class="btn btn-danger">Xóa khỏi danh sách</button> -->
-                        <!-- <button class="btn btn-danger">Yêu thích</button> -->
-                        <div class="header">
-                          <div class="row">
-                            <div class="flex d-flex flex-row">
-                              <button class="btn ml-2 btn-primary">
-                                <a
-                                  id="ahref"
-                                  href=""
-                                  routerLink="/user/Details-Order-Book/{{
-                                    item.Id
-                                  }}"
-                                  >Thuê Sách</a
-                                >
-                              </button>
-                              <div
-                                *ngFor="let itembookfavorite of bookfavorite"
-                              >
-                                <button
-                                  *ngIf="
-                                    itembookfavorite.Book_Ids.Id_Book ==
-                                      item.Id;
-                                    else checkfavorite
-                                  "
-                                  class="btn ml-2 btn-danger"
-                                >
-                                  Bỏ Yêu thích
-                                </button>
-                              </div>
-                              <ng-template #checkfavorite>
-                                <button
-                                  class="btn ml-2 btn-secondary"
-                                  style="background-color: #f9b5f3 !important"
-                                >
-                                  Yêu thích
-                                </button>
-                              </ng-template>
+                                                    </p>
+
+                                                </div>
+                                                <div>
+                                                    <!-- {{checkBookFavorite(item.Id)}} -->
+                                                </div>
+                                                <!-- <button class="btn btn-danger">Xóa khỏi danh sách</button> -->
+                                                <!-- <button class="btn btn-danger">Yêu thích</button> -->
+                                                <!-- <form [formGroup]="bookForm">
+                                                    <div style="display: none">
+                                                    <input type="text" class="form-control" value="{{item.Id}}" /><br />
+                                                    <input formControlName="User_Ids" type="text" class="form-control" [(ngModel)]="iduser" readonly /><br />
+                                                    </div>
+                                                </form> -->
+                                                <div class="header">
+                                                    <div class="row">
+                                                        <div class="flex d-flex flex-row">
+                                                            <button class="btn ml-2 btn-primary">
+                                                            <a
+                                                              id="ahref"
+                                                              href=""
+                                                              routerLink="/user/Details-Order-Book/{{
+                                                                item.Id
+                                                              }}"
+                                                              >Thuê Sách</a
+                                                            >
+                                                          </button>
+                                                            <!-- <div>{{checkBookFavorite(item.Id)}}</div> -->
+                                                            <div *ngIf="getCheck()== 0">
+                                                                <button (click)="favoriteBook(item.Id)" class="btn ml-2 btn-secondary" style="background-color: #f9b5f3 !important">
+                                                        Yêu thích
+                                                        </button>
+                                                            </div>
+                                                            <div *ngFor="let itembookfavorite1 of bookfavorite">
+
+                                                                <div *ngIf="itembookfavorite1.Book_Ids.Id_Book == item.Id;else check">
+                                                                    <button (click)="cancelfavorites(item.Id)" class="btn ml-2 btn-danger">
+                                                                      Bỏ Yêu thích
+                                                                    </button>
+                                                                </div>
+                                                                <ng-template #check>
+                                                                    <button (click)="favoriteBook(item.Id)" class="btn ml-2 btn-secondary" style="background-color: #f9b5f3 !important">
+                                                                    Yêu thích
+                                                                  </button>
+                                                                </ng-template>
+                                                            </div>
+                                                            <!-- <div *ngFor="let itembookfavorite2 of bookfavorite">
+                                                                <div *ngIf="itembookfavorite2.Book_Ids.Id_Book != item.Id">
+                                                              
+                                                                </div>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                    <!-- end table -->
                 </div>
-              </div>
             </div>
-          </div>
-          <!-- end table -->
         </div>
-      </div>
     </div>
-  </div>
 </body>
