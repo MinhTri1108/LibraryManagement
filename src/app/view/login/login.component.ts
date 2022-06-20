@@ -19,6 +19,8 @@ import { AuthguradService } from 'src/app/services/authgurad.service';
 export class LoginComponent implements OnInit {
   public users$: User[] = [];
   public loginForm!: FormGroup;
+  checkerr:any;
+  logindata:any;
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
@@ -70,23 +72,32 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           // console.log(data);
-          data.forEach( (element) => {
-            if(element != null)
-              {
-                if(element.Permission == 1)
+          this.logindata = data;
+          if(this.logindata == false)
+          {
+            alert('Bạn đã đăng nhập thất bại');
+            localStorage.removeItem('user');
+          }
+          else
+          {
+            data.forEach( (element) => {
+              if(element != null)
                 {
-                  //admin
-                  alert('Bạn đã đăng nhập thành công');
-                  this.router.navigateByUrl('admin/list-account');
+                  if(element.Permission == 1)
+                  {
+                    //admin
+                    alert('Bạn đã đăng nhập thành công');
+                    this.router.navigateByUrl('admin/list-account');
+                  }
+                  else
+                  {
+                    // user
+                    alert('Bạn đã đăng nhập thành công');
+                    this.router.navigateByUrl('/user/List-Book');
+                  }
                 }
-                else
-                {
-                  // user
-                  alert('Bạn đã đăng nhập thành công');
-                  this.router.navigateByUrl('/user/List-Book');
-                }
-              }
-            })  
+              }) 
+          } 
     },
     error => {
       alert('Bạn đã đăng nhập thất bại');

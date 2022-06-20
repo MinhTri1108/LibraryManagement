@@ -67,7 +67,7 @@ export class UserService {
     localStorage.removeItem('user');
     // localStorage.removeItem('permission');
     alert('Bạn đã đăng xuất thành công');
-    this.currentUserSubject.next(null);
+    // this.currentUserSubject.next(null);
     // this.currentUserSubject.next(null);
   }
   register(createForm: any): Observable<User[]> {

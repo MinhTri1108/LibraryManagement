@@ -13,6 +13,7 @@ import {
 import { OrderBookService } from 'src/app/services/order-book.service';
 import { OrderBook } from 'src/app/model/order-book';
 import { ListBookFavoriteService } from 'src/app/services/list-book-favorite.service';
+
 @Component({
   selector: 'app-details-order',
   templateUrl: './details-order.component.html',
@@ -26,6 +27,7 @@ export class DetailsOrderComponent implements OnInit {
   currentDateTime!: any;
   iduser!: any;
   bookfavorite!: any;
+  checkerr:any;
   // public today = Date.now();
 
   constructor(
@@ -50,17 +52,6 @@ export class DetailsOrderComponent implements OnInit {
       // TimeBook: new FormControl(null, Validators.required),
     });
   }
-  // get f() {
-  //   return this.orderGroup.controls;
-  // }
-  // getTime(): void {
-  //   this.currentDateTime = this.datepipe.transform(
-  //     new Date(),
-  //     'YYYY-MM-dd HH:mm:ss'
-  //   );
-
-  //   // console.log(this.currentDateTime);
-  // }
   getIdBook(): void {
     this.id = this.route.snapshot.params['id'];
     this.libraryManagementService.getIdBook(this.id).subscribe((data: any) => {
@@ -93,15 +84,48 @@ export class DetailsOrderComponent implements OnInit {
         this.router.navigateByUrl('admin/List-BookAndStories');
       });
   }
+  
   checkBookFavorite() {
     this.ListBookFavoriteService.checkBookFavorites(
       this.id,
       this.getinfoID()
     ).subscribe((data1: any) => {
       // console.log(this.getinfoID());
-      console.log(this.id);
+      // console.log(this.id);
       this.bookfavorite = data1;
-      console.log(this.bookfavorite);
+      // console.log(this.bookfavorite);
+
+      if(this.bookfavorite == false)
+      {
+          this.checkerr= 0 // chưa yêu thích
+          // console.log(this.err);
+      }
+      else
+      {
+        this.checkerr= 1 // đã yêu thích
+      }
     });
+  }
+  favoriteBook() {
+    this.ListBookFavoriteService.createBookfavorites(this.orderGroup.value).subscribe((res) => {
+      alert('yêu thích sách thành công');
+      this.checkerr= 1;
+    });
+  }  
+  cancelfavorites() {
+    this.ListBookFavoriteService.getIdBookFavorites(this.orderGroup.value)
+    .subscribe((res)=>{
+      res.forEach((element:any) => {
+        this.ListBookFavoriteService.deleteBookFavorites(element.Id)
+        .subscribe((res)=>{
+          alert('hủy yêu thích thành công');
+          this.checkerr= 0;
+        })
+      });
+    })
+  }
+  getCheck():any
+  {
+    return this.checkerr;
   }
 }
