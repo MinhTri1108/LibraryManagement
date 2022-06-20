@@ -24,7 +24,7 @@ export class BookRentalChartComponent implements OnInit {
       data.map((item: any) => {
         this.listchart = this.barChart.dataTable.push([
           item.DateBook,
-          item.CountBook,
+          parseInt(item.CountBook),
         ]);
         console.log(this.listchart);
       });
@@ -41,7 +41,7 @@ export class BookRentalChartComponent implements OnInit {
 
     dataTable: [
       ['Thời gian ( Ngày)', 'Số lượng người thuê'],
-      ['', 0],
+      // ['', 0],
     ],
     options: { title: 'Số sách được cho thuê (Trong ngày)' },
   };

@@ -1,88 +1,121 @@
 <body class="bg-light">
-    <div class="container">
-        <div class="row my-5">
-            <div class="col">
-                <div class="card shadow">
-                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
-                        <div class="row">
-                            <div class="col-md6">
-                                <button class="btn btn-light">
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <div class="card shadow">
+          <div
+            class="card-header bg-primary d-flex justify-content-between align-items-center"
+          >
+            <div class="row">
+              <div class="col-md6">
+                <button class="btn btn-light">
                   <a href="" routerLink="/user/List-Book"
                     ><i class="bx bx-arrow-back bx-fade-left"></i
                   ></a>
                 </button>
-                            </div>
-                            <div class="col-md6" style="font-size: 20px; color: white; margin-left: 20px">
-                                <b>Sách</b>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body" id="">
-                        <div class="container">
-                            <div class="row" style="row-gap: 20px">
-                                <div class="col-6">
-                                    <img src="{{ book[0].ImageBook }}" alt="" id="hinh" />
-                                </div>
-                                <div class="col-6">
-                                    <p style="font-size: 50px">
-                                        Tên sách: <b>{{ book[0].NameBook }}</b>
-                                    </p>
-                                    <p style="font-size: 20px">
-                                        Mô tả: {{ book[0].DescribeBook }}
-                                    </p>
+              </div>
+              <div
+                class="col-md6"
+                style="font-size: 20px; color: white; margin-left: 20px"
+              >
+                <b>Sách</b>
+              </div>
+            </div>
+          </div>
+          <div class="card-body" id="">
+            <div class="container">
+              <div class="row" style="row-gap: 20px">
+                <div class="col-6">
+                  <img src="{{ book[0].ImageBook }}" alt="" id="hinh" />
+                </div>
+                <div class="col-6">
+                  <p style="font-size: 50px">
+                    Tên sách: <b>{{ book[0].NameBook }}</b>
+                  </p>
+                  <p style="font-size: 20px">
+                    Mô tả: {{ book[0].DescribeBook }}
+                  </p>
 
-                                    <div>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">
-                                                    <div style="display: none">
-                                                        <input formControlName="Book_Ids" [(ngModel)]="book[0].Id" type="text" class="form-control" readonly /><br />
-                                                        <input formControlName="User_Ids" type="text" class="form-control" [(ngModel)]="iduser" readonly /><br />
-                                                    </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-3">
+                        <form [formGroup]="orderGroup" (ngSubmit)="orderBook()">
+                          <div style="display: none">
+                            <input
+                              formControlName="Book_Ids"
+                              [(ngModel)]="book[0].Id"
+                              type="text"
+                              class="form-control"
+                              readonly
+                            /><br />
+                            <input
+                              formControlName="User_Ids"
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="iduser"
+                              readonly
+                            /><br />
+                          </div>
 
-                                                    <div>
-                                                        <button *ngIf="
+                          <div>
+                            <button
+                              *ngIf="
                                 userorderbook[userorderbook.length - 1] == null;
                                 else checkrentalbook
-                              " type="submit" class="btn btn-success">
+                              "
+                              type="submit"
+                              class="btn btn-success"
+                            >
                               Thuê ngay
                             </button>
 
-                                                        <ng-template #checkrentalbook>
-                                                            <button *ngIf="
+                            <ng-template #checkrentalbook>
+                              <button
+                                *ngIf="
                                   userorderbook[userorderbook.length - 1]
                                     .TimeEnd !== null;
                                   else checkrentalbook1
-                                " type="submit" class="btn btn-success">
+                                "
+                                type="submit"
+                                class="btn btn-success"
+                              >
                                 Thuê ngay
                               </button>
-                                                            <ng-template #checkrentalbook1>
-                                                                <button class="btn btn-danger" disabled>
+                              <ng-template #checkrentalbook1>
+                                <button class="btn btn-danger" disabled>
                                   Đã thuê
-                                </button></ng-template>
-                                                        </ng-template>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div *ngIf="getCheck() == 0;else yeuthich ">
-                                                <button (click)="favoriteBook()" class="btn ml-2 btn-secondary" style="background-color: #f9b5f3 !important">
-                                                Yêu thích
-                                              </button>
-                                            </div>
-                                            <ng-template #yeuthich>
-                                                <button (click)="cancelfavorites()" class="btn ml-2 btn-danger">
-                                                Bỏ Yêu thích
-                                              </button>
-                                            </ng-template>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                </button></ng-template
+                              >
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                      <div *ngIf="getCheck() == 0; else yeuthich">
+                        <button
+                          (click)="favoriteBook()"
+                          class="btn ml-2 btn-secondary"
+                          style="background-color: #f9b5f3 !important"
+                        >
+                          Yêu thích
+                        </button>
+                      </div>
+                      <ng-template #yeuthich>
+                        <button
+                          (click)="cancelfavorites()"
+                          class="btn ml-2 btn-danger"
+                        >
+                          Bỏ Yêu thích
+                        </button>
+                      </ng-template>
                     </div>
-                    <!-- end table -->
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <!-- end table -->
         </div>
+      </div>
     </div>
+  </div>
 </body>
