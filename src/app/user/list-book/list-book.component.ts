@@ -6,34 +6,38 @@ import { Observable } from 'rxjs/internal/Observable';
 import { LibraryManagement } from 'src/app/model/library-management';
 import { LibraryManagementService } from 'src/app/services/library-management.service';
 import { UserService } from 'src/app/services/user.service';
+
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ListBookFavoriteService } from 'src/app/services/list-book-favorite.service';
 @Component({
   selector: 'app-list-book',
   templateUrl: './list-book.component.html',
   styleUrls: ['./list-book.component.css'],
 })
 export class ListBookComponent implements OnInit {
-  // listBooks: any;
-  // public listBooks$!: Observable<LibraryManagement[]>;
-  // public listBook: Array<LibraryManagement> = [];
+  // id!: number;
+  iduser!: any;
+  bookfavorite!: any;
   public listBooks$: LibraryManagement[] = [];
   public listIdBooks$: LibraryManagement[] = [];
   public dataList: Data[] = [];
   bookForm!: FormGroup;
   constructor(
-    private librarymanagementService: LibraryManagementService,
-    private UserService:UserService,
+    private libraryManagementService: LibraryManagementService,
+    private ListBookFavoriteService: ListBookFavoriteService,
+    private userservice: UserService,
     private fb: FormBuilder,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.fetchAllBook();
+    this.checkBookFavorite(this.getinfoID());
     this.bookForm = this.fb.group({
       bookid: new FormControl(null, Validators.required),
       // DescribeBook: new FormControl(null, Validators.required),
@@ -43,25 +47,20 @@ export class ListBookComponent implements OnInit {
     // console.log(this.librarymanagementService.checkBookFavorite(17,this.UserService.getUserIDInfo()))
   }
   fetchAllBook(): void {
-    this.librarymanagementService.getAllBook().subscribe((data) => {
+    this.libraryManagementService.getAllBook().subscribe((data) => {
       // data = JSON.parse(JS ON.stringify(data));
       // console.log(data);
       this.listBooks$ = data;
-      // console.log(data);
-      // this.listBook = data;
     });
-    
   }
-  getIdBook(id:any)
-  {
+  getIdBook(id: any) {
     return id;
   }
-  // checkBookFavorite(id:any)
-  // {
-  //   return this.librarymanagementService.checkBookFavorite(id,this.UserService.getUserIDInfo())
-  // }
-  checkBookFavorite(id:any)
-  {
+  getinfoID(): void {
+    this.iduser = this.userservice.getUserIDInfo();
+    return this.iduser;
+  }
+  checkBookFavorite(id: any) {
     // console.log(
     //  this.librarymanagementService.checkBookFavorite()
     // )
@@ -70,17 +69,21 @@ export class ListBookComponent implements OnInit {
     //     // this.librarymanagementService=data;
     //     //  console.log(this.librarymanagementService);
     //  });
-  }
-  favoriteBook()
-  {
-    this.librarymanagementService.createBookfavorites()
-    .subscribe((res)=>{
-      alert('yêu thích sách thành công');
-    })
-  }
-  cancelfavorites(id:any)
-  {
+    this.ListBookFavoriteService.getAllBookFavorites(
+      this.getinfoID()
+    ).subscribe((data: any) => {
+      console.log(this.getinfoID());
 
+      this.bookfavorite = data;
+      console.log(this.bookfavorite);
+    });
+  }
+  // favoriteBook() {
+  //   this.libraryManagementService.createBookfavorites().subscribe((res) => {
+  //     alert('yêu thích sách thành công');
+  //   });
+  // }
+  cancelfavorites(id: any) {
     // this.librarymanagementService.deleteBookFavorites(id)
     // .subscribe((res)=>{
     //   this.listBooks$=this.listBooks$.filter((item) => item.Id !== id);

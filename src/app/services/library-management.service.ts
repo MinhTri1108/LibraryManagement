@@ -20,41 +20,27 @@ export class LibraryManagementService {
       'Content-Type': 'application/json',
     }),
   };
-  // id book
-  // checkBookFavorite(book: any,user:any): Observable<LibraryManagement[]> {
-  //   return this.http.get<LibraryManagement[]>(
-  //     'http://localhost/API/api/bookfavorites/checkbookfavorites.php?idbook='+book+'&iduser='+user
+
+  // getAllBookFavorites(id: any): Observable<BookFavorites[]> {
+  //   return this.http.get<BookFavorites[]>(
+  //     'http://localhost/API/api/bookfavorites/get.php?id=' + id
   //   );
   // }
-  checkBookFavorite(): Observable<LibraryManagement[]> {
-    return this.http.get<LibraryManagement[]>(
-      'http://localhost/API/api/bookfavorites/checkbookfavorites.php?idbook=17&iduser=10'
-    );
-  }
+  // deleteBookFavorites(id: any): Observable<BookFavorites[]> {
+  //   return this.http.delete<BookFavorites[]>(
+  //     'http://localhost/API/api/bookfavorites/delete.php?id=' + id
+  //   );
+  // }
+  // getAllBookrental(id: any): Observable<OrderBook[]> {
+  //   return this.http.get<OrderBook[]>(
+  //     'http://localhost/API/api/orderbook/bookborrowed.php?id=' + id
+  //   );
+  // }
+
+  // LibraryManagement
   getAllBook(): Observable<LibraryManagement[]> {
     return this.http.get<LibraryManagement[]>(
       'http://localhost/API/api/book/get.php'
-    );
-  }
-  //  id user
-  getAllBookFavorites(id:any): Observable<BookFavorites[]> {
-    return this.http.get<BookFavorites[]>(
-      'http://localhost/API/api/bookfavorites/get.php?id='+id
-    );
-  }
-  deleteBookFavorites(id:any): Observable<BookFavorites[]> {
-    return this.http.delete<BookFavorites[]>(
-      'http://localhost/API/api/bookfavorites/delete.php?id='+id,
-    );
-  }
-  createBookfavorites(book:any, user:any):Observable<BookFavorites[]> {
-    return this.http.post<BookFavorites[]>(
-      'http://localhost/API/api/bookfavorites/post.php',book
-    );
-  }
-  getAllBookrental(id:any): Observable<OrderBook[]> {
-    return this.http.get<OrderBook[]>(
-      'http://localhost/API/api/orderbook/bookborrowed.php?id='+id
     );
   }
   getIdBook(id: string): Observable<LibraryManagement[]> {
@@ -82,10 +68,4 @@ export class LibraryManagementService {
       'http://localhost/API/api/book/delete.php?id=' + id
     );
   }
-  // deleteAll(): Observable<any> {
-  //   return this.http.delete(baseUrl);
-  // }
-  // findByTitle(title: any): Observable<LibraryManagement[]> {
-  //   return this.http.get<LibraryManagement[]>(`${baseUrl}?title=${title}`);
-  // }
 }

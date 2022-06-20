@@ -30,11 +30,24 @@ export class OrderBookService {
       'http://localhost/API/api/orderbook/countBook.php'
     );
   }
-  updateRentalBook(id: string, data: any): Observable<OrderBook[]> {
-    return this.http.put<OrderBook[]>(
-      'http://localhost/API/api/orderbook/givebookback.php?id=' + id,
-      JSON.stringify(data),
-      this.httpOptions
+  updateRentalBook(id: string): Observable<OrderBook[]> {
+    return this.http.get<OrderBook[]>(
+      'http://localhost/API/api/orderbook/givebookback.php?id=' + id
+      // JSON.stringify(data),
+      // this.httpOptions
+    );
+  }
+  chechbookanduser(id1: any, id2: any): Observable<OrderBook[]> {
+    return this.http.get<OrderBook[]>(
+      'http://localhost/API/api/orderbook/getUserAndBook.php?IdUser=' +
+        id1 +
+        '&IdBook=' +
+        id2
+    );
+  }
+  getAllBookrental(id: any): Observable<OrderBook[]> {
+    return this.http.get<OrderBook[]>(
+      'http://localhost/API/api/orderbook/bookborrowed.php?id=' + id
     );
   }
 }

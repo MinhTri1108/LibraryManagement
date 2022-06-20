@@ -44,6 +44,7 @@ export class EditBooksAndStoriesComponent implements OnInit {
   }
   updateBook() {
     console.log(this.bookForm.value);
+
     this.librarymanagementService
       .update(this.id, this.bookForm.value)
       .subscribe((res: any) => {

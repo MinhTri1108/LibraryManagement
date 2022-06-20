@@ -1,70 +1,77 @@
 <body class="bg-light">
-    <div class="container-fluid w-90 p-3">
-        <div class="row my-5">
-            <div class="col">
-                <div class="card shadow">
-                    <div class="card-header bg-primary d-flex justify-content-between align-items-center">
-                        <h3 class="text-light">Danh sách Sách-Truyện</h3>
-                        <!-- <button class="btn btn-light"><a href="">Add</a></button> -->
-                    </div>
-                    <div class="card-body" id="show_all_adminaccounts">
-                        <div class="container">
-                            <div class="row" style="row-gap: 20px">
-                                <div class="col-12 col-md-3" *ngFor="let item of bookfavorites">
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="header">
-                                                    <img id="img" src="{{ item['Book_Ids'].ImageBook }}" alt="" />
-                                                </div>
-                                                <div id="noidung" style="margin-top: 10px">
-                                                    <p>
-                                                        ID: <b>{{ item['Book_Ids'].Id_Book }}</b>
-                                                    </p>
-                                                    <p>
-                                                        Tên Sách: <b>{{ item['Book_Ids'].NameBook }}</b>
-                                                    </p>
-                                                    <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
-                                                    <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
+  <div class="container-fluid w-90 p-3">
+    <div class="row my-5">
+      <div class="col">
+        <div class="card shadow">
+          <div
+            class="card-header bg-primary d-flex justify-content-between align-items-center"
+          >
+            <h3 class="text-light">Danh sách "Sách yêu thích"</h3>
+            <!-- <button class="btn btn-light"><a href="">Add</a></button> -->
+          </div>
+          <div class="card-body" id="show_all_adminaccounts">
+            <div class="container">
+              <div class="row" style="row-gap: 20px">
+                <div class="col-12 col-md-3" *ngFor="let item of bookfavorites">
+                  <div class="item">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="header">
+                          <img
+                            id="img"
+                            src="{{ item['Book_Ids'].ImageBook }}"
+                            alt=""
+                          />
+                        </div>
+                        <div id="noidung" style="margin-top: 10px">
+                          <p>
+                            ID: <b>{{ item["Book_Ids"].Id_Book }}</b>
+                          </p>
+                          <p>
+                            Tên Sách: <b>{{ item["Book_Ids"].NameBook }}</b>
+                          </p>
+                          <!-- <p>Mô tả: {{ item.DescribeBook }}</p> -->
+                          <!-- <p *ngIf="item.BooksForRental == 1" style="color: green">
                               Trạng thái: Còn sách
                             </p>
                             <p *ngIf="item.BooksForRental == 0" style="color: red">
                               Trạng thái: Sách đã cho mượn
                             </p> -->
-
-                                                </div>
-                                                <!-- <button class="btn btn-danger">Yêu thích</button> -->
-                                                <div class="header">
-                                                    <div class="row">
-                                                        <div class="flex d-flex flex-row">
-                                                            <button class="btn ml-2 btn-primary">
-                                                            <a
-                                                                id="ahref"
-                                                                href=""
-                                                                routerLink="/user/Details-Order-Book/{{
-                                                                    item['Book_Ids'].Id_Book 
-                                                                }}"
-                                                                >Thuê Sách</a
-                                                            >
-                                                            </button>
-                                                            <button class="btn ml-2 btn-secondary" style="
-                                                              background-color: #f9b5f3 !important;
-                                                            " (click)="destroy(item.Id )">
-                                                            Hủy yêu thích
-                                                          </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+                        <!-- <button class="btn btn-danger">Yêu thích</button> -->
+                        <div class="header">
+                          <div class="row">
+                            <div class="flex d-flex flex-row">
+                              <button class="btn ml-2 btn-primary">
+                                <a
+                                  id="ahref"
+                                  href=""
+                                  routerLink="/user/Details-Order-Book/{{
+                                    item['Book_Ids'].Id_Book
+                                  }}"
+                                  >Thuê Sách</a
+                                >
+                              </button>
+                              <button
+                                class="btn ml-2 btn-secondary"
+                                style="background-color: #f9b5f3 !important"
+                                (click)="destroy(item.Id)"
+                              >
+                                Hủy yêu thích
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <!-- end table -->
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <!-- end table -->
         </div>
+      </div>
     </div>
+  </div>
 </body>

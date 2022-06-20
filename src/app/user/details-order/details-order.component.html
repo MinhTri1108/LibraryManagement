@@ -25,9 +25,6 @@
           <div class="card-body" id="">
             <div class="container">
               <div class="row" style="row-gap: 20px">
-                <!-- <pre>
-                  {{ book | json }}
-                </pre> -->
                 <div class="col-6">
                   <img src="{{ book[0].ImageBook }}" alt="" id="hinh" />
                 </div>
@@ -38,18 +35,6 @@
                   <p style="font-size: 20px">
                     Mô tả: {{ book[0].DescribeBook }}
                   </p>
-                  <!-- <p
-                    *ngIf="book[0].BooksForRental == 1"
-                    style="color: green; font-size: 20px"
-                  >
-                    Trạng thái: Còn sách
-                  </p>
-                  <p
-                    *ngIf="book[0].BooksForRental == 0"
-                    style="color: red; font-size: 20px"
-                  >
-                    Trạng thái: Sách đã cho mượn
-                  </p> -->
 
                   <div>
                     <div class="row">
@@ -70,29 +55,72 @@
                               [(ngModel)]="iduser"
                               readonly
                             /><br />
-                            <!-- <input
-                          formControlName="TimeBook"
-                          type="datetime"
-                          [(ngModel)]="currentDateTime"
-                          readonly
-                        /> -->
                           </div>
 
-                          <button type="submit" class="btn btn-success">
-                            Thuê ngay
-                          </button>
+                          <div>
+                            <button
+                              *ngIf="
+                                userorderbook[userorderbook.length - 1] == null;
+                                else checkrentalbook
+                              "
+                              type="submit"
+                              class="btn btn-success"
+                            >
+                              Thuê ngay
+                            </button>
+
+                            <ng-template #checkrentalbook>
+                              <button
+                                *ngIf="
+                                  userorderbook[userorderbook.length - 1]
+                                    .TimeEnd !== null;
+                                  else checkrentalbook1
+                                "
+                                type="submit"
+                                class="btn btn-success"
+                              >
+                                Thuê ngay
+                              </button>
+                              <ng-template #checkrentalbook1>
+                                <button class="btn btn-danger" disabled>
+                                  Đã thuê
+                                </button></ng-template
+                              >
+                            </ng-template>
+                          </div>
                         </form>
                       </div>
-                      <div class="col-9">
+                      <div class="col-9" *ngFor="let item of bookfavorite">
                         <button
-                          class="btn btn-secondary"
-                          style="
-                            background-color: #f9b5f3 !important;
-                            margin-left: 20px;
+                          *ngIf="
+                            item.Book_Ids.Id_Book === 0;
+                            else checkfavorite
                           "
+                          class="btn ml-2 btn-secondary"
+                          style="background-color: #f9b5f3 !important"
                         >
                           Yêu thích
                         </button>
+                        <ng-template #checkfavorite>
+                          <button
+                            *ngIf="
+                              item.Book_Ids.Id_Book == book[0].Id;
+                              else checkfavorite2
+                            "
+                            class="btn ml-2 btn-danger"
+                          >
+                            Bỏ Yêu thích
+                          </button>
+                          <ng-template #checkfavorite2>
+                            <button
+                              *ngIf="item.Book_Ids.Id_Book != book[0].Id"
+                              class="btn ml-2 btn-secondary"
+                              style="background-color: #f9b5f3 !important"
+                            >
+                              Yêu thích
+                            </button>
+                          </ng-template>
+                        </ng-template>
                       </div>
                     </div>
                   </div>

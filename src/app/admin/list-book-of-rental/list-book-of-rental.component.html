@@ -36,12 +36,15 @@
                           {{ item.DateBook | date: "dd-MM-yyyy" }}
                         </td>
                         <td>
-                          <p *ngIf="item.Status == 0" style="color: green">
-                            Đã trả
-                          </p>
-                          <p *ngIf="item.Status == 1" style="color: red">
+                          <p
+                            *ngIf="item.TimeEnd == null; else check"
+                            style="color: red"
+                          >
                             Chưa trả
                           </p>
+                          <ng-template #check>
+                            <p style="color: green">Đã trả</p>
+                          </ng-template>
                         </td>
 
                         <td>
@@ -49,19 +52,17 @@
                         </td>
                         <td>
                           <button
-                            *ngIf="item.Status == 0"
+                            *ngIf="item.TimeEnd == null; else checkbtn"
                             class="btn btn-primary"
-                            disabled
+                            (click)="giveBookBack(item.Id)"
                           >
                             Đánh dấu đã trả
                           </button>
-                          <button
-                            *ngIf="item.Status == 1"
-                            class="btn btn-primary"
-                            (click)="giveBookBack()"
-                          >
-                            Đánh dấu đã trả
-                          </button>
+                          <ng-template #checkbtn>
+                            <button class="btn btn-primary" disabled>
+                              Đánh dấu đã trả
+                            </button>
+                          </ng-template>
                         </td>
                       </tr>
                     </tbody>
